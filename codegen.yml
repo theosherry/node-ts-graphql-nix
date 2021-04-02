@@ -1,0 +1,30 @@
+overwrite: true
+schema: "./src/server/graphql/schema.graphql"
+generates:
+  src/server/gen-types/index.ts:
+    plugins:
+      - "typescript"
+      - "typescript-resolvers"
+    config:
+      useIndexSignature: true
+      noSchemaStitching: true
+      contextType: src/server/graphql/context#MyContextType
+      maybeValue: 'T extends PromiseLike<infer U> ? Promise<U | null> : T | null'
+      mappers:
+        Author: src/server/server/graphql#RootResolverAuthor
+        Book: src/server/server/graphql#RootResolverBook
+  src/client/gen-types.ts:
+    documents: "./src/client/**/*.graphql"
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typed-document-node"
+  src/server/gen-types/test-gen-types.ts:
+    documents: './src/**/*.test.ts'
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typed-document-node"
+  ./graphql.schema.json:
+    plugins:
+      - "introspection"
