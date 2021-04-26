@@ -1,6 +1,6 @@
 This is a template for a simple typescript node program.
 
-# Actions
+# General Actions
 
 All actions should be performed in project root unless otherwise stated.
 
@@ -35,7 +35,29 @@ Run all tests once: `npm run test`
 Run in watch mode: `npm run test:w`
 
 ## Compile to JS
-
 `npm run build`
 
 This will compile everything in the `src` directory.
+
+# Server Actions
+## Run dev server
+`npm run dev`
+
+# GraphQL Actions
+## Generate graphql types
+`npm run graphql-codegen`
+`npm run graphql-codegen:w` to watch
+
+# Environemt Variables
+## .env
+- `DEV_DATABASE_URL` -- location of dev database
+
+# DB and Prisma
+## Schema
+Write your data model definitions in `prisma/schema.prisma`
+
+## Generate Prisma client
+`npx prisma generate`
+
+## Make SQL migration file with schema changes
+`npx prisma migrate {dev}` (also generates Prisma client changes)

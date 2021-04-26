@@ -20,7 +20,6 @@ type WithID = {
 }
 const pickIDs = (xs: WithID[]) => map(xs, x => pick(x, 'id'));
 
-
 const prisma = new PrismaClient();
 const server = Server({ prisma });
 

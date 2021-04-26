@@ -13,12 +13,6 @@ generates:
       mappers:
         Author: src/server/server/graphql#RootResolverAuthor
         Book: src/server/server/graphql#RootResolverBook
-  src/client/gen-types.ts:
-    documents: "./src/client/**/*.graphql"
-    plugins:
-      - "typescript"
-      - "typescript-operations"
-      - "typed-document-node"
   src/server/gen-types/test-gen-types.ts:
     documents: './src/**/*.test.ts'
     plugins:
